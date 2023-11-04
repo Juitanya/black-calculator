@@ -1,27 +1,60 @@
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+/* *::-webkit-scrollbar-track {
+  background: #f1f1f1;
+} */
+*::-webkit-scrollbar-thumb:hover {
+  background: #e2e2e4;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #e2e2e4;
+  border-radius: 10px;
+}
+
+.scrollbar-sm::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.scrollbar-xs::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .material-icons {
+    @apply select-none cursor-default !leading-none;
+  }
+  .material-icons-outlined {
+    @apply select-none cursor-default !leading-none;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* hide-arrows-from-input-number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
