@@ -1,3 +1,4 @@
+import Calculator from "./(components)/Calculator";
 export default function Home() {
-  return <div className='border-red-400 border-2'>content</div>
+  return <Calculator />;
 }
