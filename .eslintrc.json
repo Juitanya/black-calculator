@@ -1,3 +1,116 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:storybook/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "project": true
+  },
+  "ignorePatterns": ["**/gql", "next.config.js"],
+  "rules": {
+    "semi": [
+      "error",
+      "never"
+    ],
+    "quote-props": [
+      "error",
+      "consistent-as-needed"
+    ],
+    "react/jsx-pascal-case": [
+      "error",
+      {
+        "allowNamespace": true
+      }
+    ],
+    "padding-line-between-statements": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off", // warn later
+    "@typescript-eslint/no-unsafe-assignment": "off", // warn later
+    "@typescript-eslint/no-misused-promises": [
+      "error", {
+        "checksVoidReturn": {
+          "attributes": false
+        }
+      }
+    ],
+    "@typescript-eslint/no-unsafe-call": "off", // warn later
+    "@typescript-eslint/no-unsafe-argument": "off", // warn later
+    "@typescript-eslint/no-explicit-any": "off", // remove this line later
+    "require-await": "off",
+    "@typescript-eslint/require-await": "off", // warn later
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow",
+        "trailingUnderscore": "allow"
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"]
+      },
+      {
+        "selector": [
+          "classProperty",
+          "objectLiteralProperty",
+          "typeProperty",
+          "classMethod",
+          "objectLiteralMethod",
+          "typeMethod",
+          "accessor",
+          "enumMember"
+        ],
+        "format": null
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "memberLike",
+        "modifiers": ["private"],
+        "format": ["camelCase"],
+        "leadingUnderscore": "require"
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "variable",
+        "modifiers": ["destructured"],
+        "format": null
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": false
+        }
+      },
+      {
+        "selector": "typeParameter",
+        "format": ["PascalCase"],
+        "prefix": ["T"]
+      }
+    ],
+    "@typescript-eslint/padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "function" },
+      { "blankLine": "always", "prev": "function", "next": "block-like" },
+      { "blankLine": "always", "prev": "function", "next": "const" },
+      { "blankLine": "always", "prev": "block-like", "next": "block-like" },
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": "*", "next": ["interface", "type"] },
+      { "blankLine": "always", "prev": ["interface", "type"], "next": "*" }
+    ]
+  }
 }
